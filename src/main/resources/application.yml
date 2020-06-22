@@ -1,0 +1,53 @@
+app:
+  datasource:
+#    jdbc-url: jdbc:postgresql://172.17.0.2:5432/bal2
+    jdbc-url: jdbc:postgresql://localhost:5432/bal2
+    username: postgres
+    password: password
+    pool-size: 30
+
+  datasource2:
+    jdbc-url: jdbc:postgresql://172.17.0.2:5432/bal2
+    username: postgres
+    password: password
+    pool-size: 30
+
+  mysqldatasourcelocal:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://localhost:3306/bal?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: T5^Z+fASP<Wv;ty5
+
+  mysqldatasourceDocker:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://172.17.0.2:3306/bal?createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: password
+
+
+server:
+#  port: 8075
+  port: 8095
+#  servlet:
+#    session:
+#      cookie:
+#        secure: true
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+#  flyway:
+file:
+  upload-directory: C:/Users/bram_/downloads/Fun4Backend/src/main/resources/images
+#    baselineOnMigrate: true
